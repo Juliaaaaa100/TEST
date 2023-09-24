@@ -1,0 +1,7 @@
+FUTURE STEPS:
+- Create user login
+- Add completed yes/no
+Cool code for the completed todo
+<label for="completed">Completed:</label>
+            <input type="checkbox" id="completed" name="completed" <% if (todo.completed) { %>checked<% } %>><br><br>
+            <span class="badge bg-primary rounded-pill float-end">Completed: <%= todo.completed ? 'Yes' : 'No' %></span>
