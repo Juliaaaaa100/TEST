@@ -1,25 +1,37 @@
 <%- include('./partials/header.ejs') %>
 
-<body>
+<style>
+    body {
+        background-color: rgb(156, 202, 225);
+    }
+    .container {
+        background-color: white;
+        padding: 150px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
     <h1>Edit To-Do</h1>
     <form action="/todos/<%= todo._id %>?_method=PUT" method="POST">
-
-
         <input type="hidden" name="_method" value="PUT">
-
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" value="<%= todo.title %>" required><br><br>
-
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" required><%= todo.description %></textarea><br><br>
-
-        
-
-        <label for="todoByDate">Due Date:</label>
-        <input type="date" id="todoByDate" name="todoByDate" value="<%= todo.todoByDate ? todo.todoByDate.toISOString().split('T')[0] : '' %>" required><br><br>
-
-        <button type="submit">Update To-Do</button>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" value="<%= todo.title %>" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" required><%= todo.description %></textarea>
+        </div>
+        <div class="form-group">
+            <label for="todoByDate">Due Date:</label>
+            <input type="date" class="form-control" id="todoByDate" name="todoByDate" value="<%= todo.todoByDate ? todo.todoByDate.toISOString().split('T')[0] : '' %>" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update To-Do</button>
     </form>
-    <a href="/todos/<%= todo._id %>">Back to To-Do</a>
-</body>
-</html>
+    <a href="/todos/<%= todo._id %>" class="btn btn-secondary mt-3">Back to To-Do</a>
+</div>
+
+<%- include('./partials/footer.ejs') %>

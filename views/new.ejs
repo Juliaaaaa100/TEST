@@ -1,20 +1,37 @@
 <%- include('./partials/header.ejs') %>
 
+<style>
+    body {
+        background-color: rgb(156, 202, 225);
+    }
+    .container {
+        background-color: white;
+        padding: 150px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
     <h1>Create New To-Do</h1>
+    
     <form action="/todos" method="POST">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required><br><br>
-
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea><br><br>
-
-        <label for="todoByDate">Due Date:</label>
-        <input type="date" id="todoByDate" name="todoByDate" required><br><br>
-
-        <button type="submit">Create To-Do</button>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="todoByDate">Due Date:</label>
+            <input type="date" class="form-control" id="todoByDate" name="todoByDate" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Create To-Do</button>
     </form>
-    <a href="/todos">Back to To-Do List</a>
-</body>
-</html>
+    <a href="/todos" class="btn btn-secondary mt-3">Back to To-Do List</a>
+</div>
 
 <%- include('./partials/footer.ejs') %>
